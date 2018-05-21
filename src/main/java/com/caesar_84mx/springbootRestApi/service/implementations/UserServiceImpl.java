@@ -42,7 +42,6 @@ public class UserServiceImpl implements UserService {
         return checkNotFound(repository.getOne(id), "User id = " + id + " not found");
     }
 
-    @Secured({"USER", "ADMIN", "SUPERUSER"})
     @Transactional
     @Override
     public void update(User user) throws NotUpdatableException {
@@ -55,7 +54,6 @@ public class UserServiceImpl implements UserService {
         repository.save(user);
     }
 
-    @Secured({"ADMIN", "SUPERUSER"})
     @Transactional
     @Override
     public void delete(long id) throws NotFoundException {
@@ -67,7 +65,7 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         log.trace("[{}] - Getting users list", this.getClass().getSimpleName());
 
-        return repository.findAll(new Sort(Sort.Direction.DESC, "registered_date"));
+        return repository.findAll(new Sort(Sort.Direction.DESC, "registeredDate"));
     }
 
     @Override
@@ -84,7 +82,6 @@ public class UserServiceImpl implements UserService {
         return repository.countAllByNickname(nickname) == 0;
     }
 
-    @Secured({"ADMIN", "SUPERUSER"})
     @Transactional
     @Override
     public void setActive(long id, boolean active) throws NotFoundException {

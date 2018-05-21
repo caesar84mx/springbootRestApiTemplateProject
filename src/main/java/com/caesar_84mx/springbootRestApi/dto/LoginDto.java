@@ -1,4 +1,4 @@
-package com.caesar_84mx.springbootRestApi.dto.user_related;
+package com.caesar_84mx.springbootRestApi.dto;
 
 import lombok.*;
 

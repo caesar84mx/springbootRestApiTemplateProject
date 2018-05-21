@@ -1,4 +1,6 @@
-package com.caesar_84mx.springbootRestApi.dto.user_related;
+package com.caesar_84mx.springbootRestApi.dto;
+
+//TODO: revise avatarUrl field: might have specific parameters (protocol, host etc.)
 
 import com.caesar_84mx.springbootRestApi.domain.model.User;
 import com.caesar_84mx.springbootRestApi.dto.WithId;

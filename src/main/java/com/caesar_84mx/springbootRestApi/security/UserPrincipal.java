@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
-public class UserPincipal implements UserDetails {
+public class UserPrincipal implements UserDetails {
     private Long id;
     private String username;
     private String email;
@@ -21,12 +21,12 @@ public class UserPincipal implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
     private boolean active;
 
-    public static UserPincipal create(User user) {
+    public static UserPrincipal create(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
                 .collect(Collectors.toList());
 
-        return new UserPincipal(
+        return new UserPrincipal(
                 user.getId(),
                 user.getNickname(),
                 user.getEmail(),

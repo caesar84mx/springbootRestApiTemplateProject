@@ -1,10 +1,10 @@
 package com.caesar_84mx.springbootRestApi.web.rest;
 
 import com.caesar_84mx.springbootRestApi.domain.model.User;
-import com.caesar_84mx.springbootRestApi.dto.user_related.LoginDto;
-import com.caesar_84mx.springbootRestApi.dto.user_related.SignupDto;
-import com.caesar_84mx.springbootRestApi.dto.user_related.ApiResponse;
-import com.caesar_84mx.springbootRestApi.dto.user_related.JwtAuthResponse;
+import com.caesar_84mx.springbootRestApi.dto.LoginDto;
+import com.caesar_84mx.springbootRestApi.dto.SignupDto;
+import com.caesar_84mx.springbootRestApi.dto.ApiResponse;
+import com.caesar_84mx.springbootRestApi.dto.JwtAuthResponse;
 import com.caesar_84mx.springbootRestApi.security.JwtTokenProvider;
 import com.caesar_84mx.springbootRestApi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

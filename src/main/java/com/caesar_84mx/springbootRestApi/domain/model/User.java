@@ -1,6 +1,8 @@
 package com.caesar_84mx.springbootRestApi.domain.model;
+//TODO: revise this class: might have specific fields, depending on your needs
+//TODO: revise avatarUrl field: might have specific parameters (protocol, host etc.)
 
-import com.caesar_84mx.springbootRestApi.dto.user_related.SignupDto;
+import com.caesar_84mx.springbootRestApi.dto.SignupDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
@@ -11,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -32,7 +33,7 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
-    //@URL
+    @URL
     @Column(name = "avatar_url")
     private String avatarUrl;
 

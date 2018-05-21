@@ -79,6 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/check-email-available", "/api/check-nickname-available").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/users/**", "/api/posts/**").permitAll()
+                .antMatchers("/api/admin/**").hasAnyRole("ADMIN", "SUPERUSER")
                 .anyRequest().authenticated();
     }
 }

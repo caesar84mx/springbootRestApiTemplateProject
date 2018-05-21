@@ -1,7 +1,7 @@
 package com.caesar_84mx.springbootRestApi.service.implementations;
 
 import com.caesar_84mx.springbootRestApi.domain.repository.UserCrudRepository;
-import com.caesar_84mx.springbootRestApi.security.UserPincipal;
+import com.caesar_84mx.springbootRestApi.security.UserPrincipal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,13 +27,13 @@ public class CustomUserDetailsService implements UserDetailsService {
         var user = repository.getByEmailOrNickname(authData).orElseThrow(() ->
                 new UsernameNotFoundException("User authData = " + authData + " not found!"));
 
-        return UserPincipal.create(user);
+        return UserPrincipal.create(user);
     }
 
     public UserDetails loadUserById(Long id) {
         log.trace("[{}] - Loading user id = {}", this.getClass().getSimpleName(), id);
         var user = repository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User id = " + id + " not found!"));
 
-        return UserPincipal.create(user);
+        return UserPrincipal.create(user);
     }
 }

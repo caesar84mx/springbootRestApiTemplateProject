@@ -18,15 +18,15 @@ public class JwtTokenProvider {
     private long jwtExpirationInMs;
 
     public String generateToken(Authentication authentication) {
-        var userPincipal = (UserPincipal) authentication.getPrincipal();
-        log.info("[{}] - Generating token for user {}", this.getClass().getSimpleName(), userPincipal.getUsername());
+        var userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        log.info("[{}] - Generating token for user {}", this.getClass().getSimpleName(), userPrincipal.getUsername());
 
         var now = new Date();
         var expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
         return Jwts.builder()
-                .setId(userPincipal.getId().toString())
-                .setSubject(userPincipal.getEmail() + " " + userPincipal.getUsername())
+                .setId(userPrincipal.getId().toString())
+                .setSubject(userPrincipal.getEmail() + " " + userPrincipal.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)

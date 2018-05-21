@@ -1,6 +1,9 @@
-package com.caesar_84mx.springbootRestApi.dto.user_related;
+package com.caesar_84mx.springbootRestApi.dto;
+
+//TODO: revise avatarUrl field: might have specific parameters (protocol, host etc.)
 
 import lombok.Data;
+import org.hibernate.validator.constraints.URL;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -36,6 +39,7 @@ public class SignupDto {
 
     private String description;
 
+    @URL
     private String avatarUrl;
 }
 
